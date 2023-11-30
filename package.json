@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "start": "node routes/Scrap.routes.js"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +33,7 @@
     "passport-local": "^1.0.0",
     "pdfkit": "^0.12.3",
     "pdfmake": "^0.1.72",
+    "puppeteer": "^21.5.2",
     "read-excel-file": "^5.6.1"
   },
   "devDependencies": {

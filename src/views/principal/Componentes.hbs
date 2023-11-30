@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Detalles del Componente</title>
+    <!-- Otros encabezados y enlaces de estilo según sea necesario -->
+</head>
+
+<body>
+    <div class="container">
+        <h2>Detalles del Componente</h2>
+
+        {{#if componente}}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Enlace</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="{{componente.imagen}}" alt="Imagen del Componente" style="max-width: 100px;"></td>
+                    <td>{{componente.nombre}}</td>
+                    <td>{{componente.precio}}</td>
+                    <td><a href="{{componente.enlace}}" target="_blank">Ver en la tienda</a></td>
+                </tr>
+            </tbody>
+        </table>
+        {{else}}
+        <p>No se encontraron resultados para el componente.</p>
+        {{/if}}
+
+        <!-- Otros elementos o secciones según sea necesario -->
+
+    </div>
+
+    <!-- Otros scripts según sea necesario -->
+</body>
+
+</html>

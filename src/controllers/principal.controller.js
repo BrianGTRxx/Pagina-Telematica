@@ -9,6 +9,12 @@ principalCtrl.registrarSensor = (req, res) => {
 
 };
 
+
+principalCtrl.Componente = (req, res) => {
+  res.render('principal/Componentes');
+
+};
+
 principalCtrl.listarSensor = async (req, res) => {
 
   const listadosensores = await Sensores.find();

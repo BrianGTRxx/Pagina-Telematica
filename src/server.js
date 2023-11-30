@@ -55,7 +55,7 @@ app.use((req, res, next) => {
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/users.routes'));
 app.use(require('./routes/wallhack.routes'));
-
+app.use(require('./routes/busca.routes'));
 
 // static files
 
