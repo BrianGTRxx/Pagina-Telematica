@@ -1,45 +1,37 @@
+<!-- principal/Componentes.hbs -->
+
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Detalles del Componente</title>
-    <!-- Otros encabezados y enlaces de estilo según sea necesario -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Búsqueda</title>
 </head>
-
 <body>
-    <div class="container">
-        <h2>Detalles del Componente</h2>
 
-        {{#if componente}}
-        <table class="table">
-            <thead>
+    <h1>Resultados de Búsqueda</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Precio</th>
+                <th>Enlace</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#if componentPrice}}
                 <tr>
-                    <th scope="col">Imagen</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Enlace</th>
+                    <td>{{componentPrice}}</td>
+                    <td><a href="{{componentLink}}" target="_blank">Ver Detalles</a></td>
                 </tr>
-            </thead>
-            <tbody>
+            {{else}}
                 <tr>
-                    <td><img src="{{componente.imagen}}" alt="Imagen del Componente" style="max-width: 100px;"></td>
-                    <td>{{componente.nombre}}</td>
-                    <td>{{componente.precio}}</td>
-                    <td><a href="{{componente.enlace}}" target="_blank">Ver en la tienda</a></td>
+                    <td colspan="2">No se encontraron resultados.</td>
                 </tr>
-            </tbody>
-        </table>
-        {{else}}
-        <p>No se encontraron resultados para el componente.</p>
-        {{/if}}
+            {{/if}}
+        </tbody>
+    </table>
 
-        <!-- Otros elementos o secciones según sea necesario -->
-
-    </div>
-
-    <!-- Otros scripts según sea necesario -->
 </body>
-
 </html>

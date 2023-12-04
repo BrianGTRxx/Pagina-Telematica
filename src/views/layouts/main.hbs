@@ -123,22 +123,25 @@
           <h6 class="font-weight-bolder text-white mb-0">Componentes</h6>
         </nav>
 
-        <div class="container-fluid mt-4">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="h12 mb-4">QUE COMPONENTE NECESITA?</h2>
-            <form id="searchForm" action="/search" method="get">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Ingrese el nombre del componente" name="term" id="searchTerm">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" onclick="handleSearch()">Buscar</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Búsqueda</title>
+</head>
+<body>
 
+    <h1>Barra de Búsqueda</h1>
+
+    <form action="/Encontrar" method="POST">
+        <label for="search">Buscar:</label>
+        <input type="text" id="search" name="nombreC" placeholder="Ingrese su búsqueda...">
+        <button type="submit">Buscar</button>
+    </form>
+
+</body>
+
+</body>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
 
