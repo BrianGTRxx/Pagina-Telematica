@@ -1,5 +1,3 @@
-<!-- principal/Componentes.hbs -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,19 +13,23 @@
     <table border="1">
         <thead>
             <tr>
-                <th>Precio</th>
-                <th>Enlace</th>
+                <th>Precio (Sitio 1)</th>
+                <th>Enlace (Sitio 1)</th>
+                <th>Precio (Sitio 2)</th>
+                <th>Enlace (Sitio 2)</th>
             </tr>
         </thead>
         <tbody>
-            {{#if componentPrice}}
+            {{#if componentPrice1}}
                 <tr>
-                    <td>{{componentPrice}}</td>
-                    <td><a href="{{componentLink}}" target="_blank">Ver Detalles</a></td>
+                    <td>{{componentPrice1}}</td>
+                    <td><a href="{{componentLink1}}" target="_blank">Ver Detalles (Sitio 1)</a></td>
+                    <td>{{componentPrice2}}</td>
+                    <td><a href="{{componentLink2}}" target="_blank">Ver Detalles (Sitio 2)</a></td>
                 </tr>
             {{else}}
                 <tr>
-                    <td colspan="2">No se encontraron resultados.</td>
+                    <td colspan="4">No se encontraron resultados.</td>
                 </tr>
             {{/if}}
         </tbody>

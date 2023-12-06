@@ -6,29 +6,44 @@ BuscarCtrl.BuscarComponente = async (req, res) => {
     try {
         const { nombreC } = req.body;
 
-        const browser = await puppeteer.launch({ headless: 'new' });
-        const page = await browser.newPage();
-        await page.goto('https://www.electronicoscaldas.com/es/', { waitUntil: 'domcontentloaded', timeout: 60000 });
+        const browser1 = await puppeteer.launch({ headless: 'new' });
+        const page1 = await browser1.newPage();
 
-        // Buscar el componente y hacer clic en la lupa para buscar
-        await page.type('#search_query_top', nombreC);
-        await page.click('button');
-        
-        // Esperar a que se cargue la página de resultados y ordenar por precio
-        await page.waitForSelector('#center_column');
+        await page1.goto('https://www.electronicoscaldas.com/es/', { waitUntil: 'domcontentloaded', timeout: 60000 });
 
+        await page1.type('#search_query_top', nombreC);
+        await page1.click('button');
+        await page1.waitForSelector('#center_column');
 
-        // Extraer el precio más barato del primer resultado
-        const componentPrice = await page.$eval('span.price.product-price', el => el.textContent);
-        const componentLink = await page.$eval('#product_list > li.ajax_block_product.col-xs-12.col-sm-6.col-md-4.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line > div > div.left-block > div > a', el => el.href);
-        
-        console.log(`El precio más barato para ${nombreC} es: ${componentPrice}`);
-        console.log(`El link del componente para ${nombreC} es: ${componentLink}`);
+        const componentPrice1 = await page1.$eval('span.price.product-price', el => el.textContent);
+        const componentLink1 = await page1.$eval('#product_list > li.ajax_block_product.col-xs-12.col-sm-6.col-md-4.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line > div > div.left-block > div > a', el => el.href);
 
-        // Aquí puedes enviar los datos al cliente o renderizar la vista con los resultados.
-        res.render('principal/Componentes', { componentPrice, componentLink });
+        console.log(`El precio más barato para ${nombreC} (Sitio 1) es: ${componentPrice1}`);
+        console.log(`El link del componente para ${nombreC} (Sitio 1) es: ${componentLink1}`);
 
-        await browser.close();
+        await browser1.close();
+
+        // Lógica para el segundo sitio web
+        const browser2 = await puppeteer.launch({ headless: 'new' });
+        const page2 = await browser2.newPage();
+
+        await page2.goto('https://www.bigtronica.com/', { waitUntil: 'domcontentloaded', timeout: 60000 });
+
+        await page2.type('#search_query_top', nombreC);
+        await page2.evaluate(() => {
+            document.querySelector('button[type="submit"]').click();
+        });
+        await page2.waitForSelector('#center_column');
+
+        const componentPrice2 = await page2.$eval('span.price.product-price', el => el.textContent);
+        const componentLink2 = await page2.$eval('#product_list > li.ajax_block_product.col-xs-12.col-sm-6.col-md-4.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line > div > div.left-block > div > a', el => el.href);
+
+        console.log(`El precio más barato para ${nombreC} (Sitio 2) es: ${componentPrice2}`);
+        console.log(`El link del componente para ${nombreC} (Sitio 2) es: ${componentLink2}`);
+        await browser2.close();
+
+        // Puedes enviar los datos al cliente o renderizar la vista con los resultados aquí
+        res.render('principal/Componentes', { componentPrice1, componentLink1, componentPrice2, componentLink2 });
     } catch (error) {
         console.error('Error al buscar componentes:', error);
         res.status(500).send('Error interno del servidor');
@@ -36,5 +51,4 @@ BuscarCtrl.BuscarComponente = async (req, res) => {
 };
 
 module.exports = BuscarCtrl;
-
 
