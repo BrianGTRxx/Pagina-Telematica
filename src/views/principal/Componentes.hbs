@@ -10,30 +10,45 @@
 
     <h1>Resultados de Búsqueda</h1>
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Precio (Sitio 1)</th>
-                <th>Enlace (Sitio 1)</th>
-                <th>Precio (Sitio 2)</th>
-                <th>Enlace (Sitio 2)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#if componentPrice1}}
+    {{#if resultadosSitio1}}
+        <h2>Sitio 1</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Precio (Sitio 1)</th>
+                    <th>Enlace (Sitio 1)</th>
+                </tr>
+            </thead>
+            <tbody>
                 <tr>
                     <td>{{componentPrice1}}</td>
                     <td><a href="{{componentLink1}}" target="_blank">Ver Detalles (Sitio 1)</a></td>
+                </tr>
+            </tbody>
+        </table>
+    {{/if}}
+
+    {{#if resultadosSitio2}}
+        <h2>Sitio 2</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Precio (Sitio 2)</th>
+                    <th>Enlace (Sitio 2)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
                     <td>{{componentPrice2}}</td>
                     <td><a href="{{componentLink2}}" target="_blank">Ver Detalles (Sitio 2)</a></td>
                 </tr>
-            {{else}}
-                <tr>
-                    <td colspan="4">No se encontraron resultados.</td>
-                </tr>
-            {{/if}}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    {{/if}}
+
+    {{#if resultadosNulos}}
+        <p>No se encontraron resultados en ninguno de los sitios.</p>
+    {{/if}}
 
 </body>
 </html>
