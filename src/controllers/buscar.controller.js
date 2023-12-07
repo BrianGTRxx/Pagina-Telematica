@@ -38,9 +38,10 @@ BuscarCtrl.BuscarComponente = async (req, res) => {
         });
 
         await page2.waitForSelector('#center_column');
+        await page2.waitForSelector('#center_column > ul > li.ajax_block_product.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line.col-xs-12 > div > div > div.center-block.col-xs-4.col-sm-7.col-md-4 > h5 > a');
 
         const componentPrice2 = await page2.$eval('span.price.product-price', el => el.textContent);
-        const componentLink2 = await page2.$eval('#product_list > li.ajax_block_product.col-xs-12.col-sm-6.col-md-4.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line > div > div.left-block > div > a', el => el.href);
+        const componentLink2 = await page2.$eval('#center_column > ul > li.ajax_block_product.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line.col-xs-12 > div > div > div.center-block.col-xs-4.col-sm-7.col-md-4 > h5 > a', el => el.href);
         
         console.log(`El precio más barato para ${nombreC} (Sitio 2) es: ${componentPrice2}`);
         console.log(`El link del componente para ${nombreC} (Sitio 2) es: ${componentLink2}`);
@@ -49,7 +50,7 @@ BuscarCtrl.BuscarComponente = async (req, res) => {
 
         // Verificar si se encontraron resultados en ambos sitios
         const resultadosSitio1 = componentPrice1 && componentLink1;
-        const resultadosSitio2 = componentPrice2 && componentLink2;
+        const resultadosSitio2 = componentPrice2 && componentLink2;
 
         // Renderizar según los resultados
         if (resultadosSitio1 || resultadosSitio2) {

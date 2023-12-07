@@ -24,6 +24,70 @@
 
 </head>
 
+  <style> 
+
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+    body {
+        margin: auto;
+        padding: auto;
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4; /* Cambia el color de fondo según tu preferencia */
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 8vh;
+        margin: 0;
+    }
+
+    label {
+        display: none; /* Oculta la etiqueta para un diseño más limpio */
+    }
+
+    input {
+        outline: none;
+        box-sizing: border-box;
+        height: 40px;
+        width: 300px;
+        padding: 10px;
+        color: #333;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+
+    input::placeholder {
+        color: #999;
+    }
+
+    button {
+        height: 40px;
+        margin-left: 10px;
+        padding: 0 15px;
+        background-color: #3498db; /* Cambia el color del botón según tu preferencia */
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #2077c8; /* Cambia el color de hover según tu preferencia */
+    }
+  </style>
+
+
 
 <style>
   .h12 {
@@ -117,10 +181,9 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;"></a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page"></li>
+
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Componentes</h6>
+          
         </nav>
 
 <head>
@@ -405,5 +468,4 @@
   <script src="/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
 </body>
 
-</html>
 
