@@ -67,7 +67,7 @@ BuscarCtrl.BuscarComponente = async (req, res) => {
 
     } catch (error) {
         console.error('Error al buscar componentes:', error);
-        res.status(500).send('Error interno del servidor');
+        res.redirect('/');
     }
 };
 

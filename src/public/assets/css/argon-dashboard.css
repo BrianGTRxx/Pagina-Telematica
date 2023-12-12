@@ -10679,7 +10679,7 @@ fieldset:disabled .btn {
 
 /* COLOR principal */
 .bg-primary {
-  background-color: #0023ff !important;
+  background-color: #000 !important;
 }
 
 .bg-secondary {

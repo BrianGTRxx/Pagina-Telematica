@@ -20,7 +20,7 @@ router.post("/users/guardar", isAuthenticated,guardarUsuario);
 
 router.get("/users/signup", renderSignUpForm);
 
-router.post("/users/registro", registro);
+router.get("/users/registro", registro);
 
 router.post("/users/signup", singup);
 

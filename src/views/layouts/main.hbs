@@ -85,6 +85,11 @@
     button:hover {
         background-color: #2077c8; /* Cambia el color de hover según tu preferencia */
     }
+
+    .nav-link {
+    -webkit-text-stroke: 0.4px black; /* Ancho y color del delineado */
+    text-stroke: 1px black; /* Ancho y color del delineado */
+  } 
   </style>
 
 
@@ -117,19 +122,22 @@
           </ol>
           
         </nav>
+        
 
 <head>
 
 
-    <form action="/Encontrar" method="POST">
-        <label for="search">Buscar:</label>
-        <input type="text" id="search" name="nombreC" placeholder="Ingrese su búsqueda...">
-        <button type="submit">Buscar</button>
-    </form>
+<form action="/Encontrar" method="POST" style="margin-left: 255px;">
+    <label for="search">Buscar:</label>
+    <input type="text" id="search" name="nombreC" placeholder="Ingrese su búsqueda...">
+    <button type="submit">Buscar</button>
+</form>
+
 
 </body>
 
 </body>
+        
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
 
@@ -138,11 +146,18 @@
           {{#if user}}
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="/users/logout" class="nav-link text-white font-weight-bold px-0">
+              <a href="/users/logout" class="nav-link text-white font-weight-bold px-4">
                 <i class="fa fa-user me-sm-1"></i>
                 <span class="d-sm-inline d-none">Salir</span>
               </a>
             </li>
+            <li class="nav-item d-flex align-items-center">
+              <a href="/" class="nav-link text-white font-weight-bold px-0">
+                <i class="fa fa-user me-sm-1"></i>
+                <span class="d-sm-inline d-none">Home</span>
+              </a>
+            </li>
+            
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
                 <div class="sidenav-toggler-inner">
@@ -152,11 +167,7 @@
                 </div>
               </a>
             </li>
-            <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-              </a>
-            </li>
+
 
           </ul>
           {{else}}
@@ -219,7 +230,7 @@
                 document.write(new Date().getFullYear())
               </script>,
               Realizado por <i class="fa fa-envira"></i>
-              <a href="" class="font-weight-bold" target="_blank">Andres F. Velez</a>
+              <a href="" class="font-weight-bold" target="_blank">Andres F. Velez & Brian R. Ruiz</a>
             </div>
           </div>
 
@@ -229,9 +240,7 @@
 
   </main>
   <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
+
     <div class="card shadow-lg">
       <div class="card-header pb-0 pt-3 ">
         <div class="float-start">
