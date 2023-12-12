@@ -10,10 +10,11 @@ BuscarCtrl.BuscarComponente = async (req, res) => {
         // Lógica para el primer sitio web
         const browser1 = await puppeteer.launch({
             args: [ 
-                "--disable-setuid-sandox",
-                "--no-sandox",
-                "--single-process",
-                "--no-zygote",
+                '--no-sandbox',
+                 '--disable-setuid-sandbox',
+             '--disable-dev-shm-usage',
+             '--disable-accelerated-2d-canvas',
+             '--disable-gpu'
             ],
             executablePath: process.env.NODE_ENV === 'production1'
             ? process.env.PUPPETEER_EXECUTABLE_PATH
@@ -40,10 +41,11 @@ BuscarCtrl.BuscarComponente = async (req, res) => {
         // Lógica para el segundo sitio web
         const browser2 = await puppeteer.launch({ 
             args: [ 
-                "--disable-setuid-sandox",
-                "--no-sandox",
-                "--single-process",
-                "--no-zygote",
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--disable-gpu'
             ],
             executablePath: process.env.NODE_ENV === 'production2'
             ? process.env.PUPPETEER_EXECUTABLE_PATH
