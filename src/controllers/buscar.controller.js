@@ -1,13 +1,24 @@
 const BuscarCtrl = {};
 const Dato = require("../models/Buscar");
 const puppeteer = require('puppeteer');
+require("dotenv").config();
 
 BuscarCtrl.BuscarComponente = async (req, res) => {
     try {
         const { nombreC } = req.body;
 
         // Lógica para el primer sitio web
-        const browser1 = await puppeteer.launch({ headless: 'new' });
+        const browser1 = await puppeteer.launch({
+            args: [ 
+                "--disable-setuid-sandox",
+                "--no-sandox",
+                "--single-process",
+                "--no-zygote",
+            ],
+            executablePath: process.env.NODE_ENV === 'production1'
+            ? process.env.PUPPETEER_EXECUTABLE_PATH
+            : puppeteer.executablePath(),
+        });
         const page1 = await browser1.newPage();
 
         await page1.goto('https://www.electronicoscaldas.com/es/', { waitUntil: 'domcontentloaded', timeout: 60000 });
@@ -27,7 +38,17 @@ BuscarCtrl.BuscarComponente = async (req, res) => {
 
 
         // Lógica para el segundo sitio web
-        const browser2 = await puppeteer.launch({ headless: 'new' });
+        const browser2 = await puppeteer.launch({ 
+            args: [ 
+                "--disable-setuid-sandox",
+                "--no-sandox",
+                "--single-process",
+                "--no-zygote",
+            ],
+            executablePath: process.env.NODE_ENV === 'production2'
+            ? process.env.PUPPETEER_EXECUTABLE_PATH
+            : puppeteer.executablePath(),
+         });
         const page2 = await browser2.newPage();
 
         await page2.goto('https://www.bigtronica.com/');
